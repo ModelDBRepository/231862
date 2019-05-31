@@ -1,0 +1,40 @@
+
+for CELLINDEX = 0, cellList.count()-1 {
+
+// reducing Na channel for bAPs
+/*	//forsec cellList.o(CELLINDEX).regSGCL gnabar_ichan3 = 0.004
+	forsec cellList.o(CELLINDEX).regGCL gnabar_ichan3 = 0.004
+	//forsec cellList.o(CELLINDEX).regbdend gnabar_ichan3 = 0.002
+	forsec cellList.o(CELLINDEX).regadendIML gnabar_ichan3 = 0.002
+	forsec cellList.o(CELLINDEX).regadendMML gnabar_ichan3 = 0.001
+	forsec cellList.o(CELLINDEX).regadendOML gnabar_ichan3 = 0
+	//forsec cellList.o(CELLINDEX).regadendOMLout gnabar_ichan3 = 0
+	
+// reducing T type Ca channel
+	forsec cellList.o(CELLINDEX).regadendIML {if (ismembrane("Ca")) {gtcabar_Ca = gtcabar_Ca /2} else  {gtcabar_Caold = gtcabar_Caold /2}} 
+	forsec cellList.o(CELLINDEX).regadendMML {if (ismembrane("Ca")) {gncabar_Ca = gncabar_Ca /2} else  {gncabar_Caold = gncabar_Caold /2}} 
+	forsec cellList.o(CELLINDEX).regadendOML {if (ismembrane("Ca")) {glcabar_Ca = glcabar_Ca /2} else  {glcabar_Caold = glcabar_Caold /2}} 
+	forsec cellList.o(CELLINDEX).regGCL {if (ismembrane("Ca")) {gtcabar_Ca = glcabar_Ca /1.5} else  {glcabar_Caold = glcabar_Caold /1.5}} 
+*/
+	// reducing BK channel
+	//forsec cellList.o(CELLINDEX).regadendOML { if (ismembrane("Caold") || ismembrane("Ca"))  gbkbar_CadepK = gbkbar_CadepK * 0.6}
+	//forsec cellList.o(CELLINDEX).regadendMML { if (ismembrane("Caold") || ismembrane("Ca"))  gbkbar_CadepK = gbkbar_CadepK * 0.6}
+
+}
+
+	//forall if (ismembrane("Caold") || ismembrane("Ca")) gbkbar_CadepK = gbkbar_CadepK * 0.64
+
+	forall if (ismembrane("ichan3")) gksbar_ichan3 = gksbar_ichan3 /2
+	
+	//forall if (ismembrane("ichan3")) gksbar_ichan3 = 0
+		
+	forall if (ismembrane("CadepK")) gskbar_CadepK = gskbar_CadepK * 0.5
+	//forall if (ismembrane("Caold")) glcabar_Caold = glcabar_Caold * 0.3
+
+		
+	
+	
+	
+		//cellList.remove(cellList.count()-1)
+		
+		

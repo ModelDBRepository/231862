@@ -1,0 +1,7 @@
+//forall gkabar_ichan3 = 0
+//forall gkfbar_ichan3 = 0
+
+forall if (ismembrane("CadepK"))  gbkbar_CadepK = 0
+forall if (ismembrane("CadepK"))  gskbar_CadepK = 0
+
+//forall if (ismembrane("Ca"))  uninsert Ca
