@@ -9,13 +9,16 @@ function t2n_initModelfolders(folder)
 %
 % *****************************************************************************************************
 % * This function is part of the T2N software package.                                                *
-% * Copyright 2016, 2017 Marcel Beining <marcel.beining@gmail.com>                                    *
+% * Copyright 2016-2019 Marcel Beining <marcel.beining@gmail.com>                                    *
 % *****************************************************************************************************
 
 if nargin < 1
     folder = uigetdir(pwd,'Please give a folder where the model structure should be initialized');
 end
 if ~ischar(folder)
+    if folder == 0
+        return
+    end
     error('Input was no string')
 end
 if ~exist(folder,'file')
@@ -43,10 +46,6 @@ end
 if ~exist(fullfile(folder,'lib_genroutines'),'dir')
     mkdir(folder,'lib_genroutines')
     disp('non-existent folder lib_genroutines created')
-end
-if ~exist(fullfile(folder,'lib_genroutines/fixnseg.hoc'),'file')
-    copyfile(fullfile(t2npath,'src','fixnseg.hoc'),fullfile(folder,'lib_genroutines/fixnseg.hoc'))
-    disp('fixnseg.hoc copied to model folder')
 end
 if ~exist(fullfile(folder,'lib_genroutines/genroutines.hoc'),'file')
     copyfile(fullfile(t2npath,'src','genroutines.hoc'),fullfile(folder,'lib_genroutines/genroutines.hoc'))

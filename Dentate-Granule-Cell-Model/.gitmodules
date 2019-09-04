@@ -1,0 +1,6 @@
+[submodule "Modules/t2n"]
+	path = Modules/t2n
+	url = git@bitbucket.org:cuntzlab/t2n.git
+[submodule "Modules/treestoolbox"]
+	path = Modules/treestoolbox
+	url = git@bitbucket.org:treestoolbox/treestoolbox.git

@@ -1,0 +1,31 @@
+t2nexchange/
+understanding/
+Channelfit/
+raw data/mature/
+raw data/from other papers/FI_Meranfahrd15b_RAT.json
+raw data/from other papers/
+raw data/Mongiat 2009/Kir overexpression/21 dpi + Kir2.1/2010_03_19_0016.abf
+raw data/Mongiat 2009/
+raw data/BaCl/
+raw data/young/
+raw data/25/
+raw data/28/
+raw data/21/
+*.c
+*.o
+morphos/NEURON2_hocs/
+t2nexchange_aGCmorphsim/
+t2nexchange_aGCmorphsim6/
+*.asv
+t2nexchange_aGCmorphsim3/
+*.dll
+*.mat
+t2nexchange_aGCmorphsim4/
+lib_mech/x86_64/
+x86_64/
+*.m~
+channelPlots/
+t2n_exchange/
+*.hoc
+morphos/hocs/
+t2nexchange_mouseGC_90dpl/

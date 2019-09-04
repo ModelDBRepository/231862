@@ -186,6 +186,7 @@ mkdir('tmpfolder')                % t2n_currSteps saves the result of the simula
                                   % can also be a permanent folder in your simulations
 t2n_currSteps(neuron,tree,'tmpfolder/',ostruct); % run the current step simulations and save the results in tmpfolder
 t2n_FIplot('tmpfolder/',neuron,ostruct); % plot an f-i-relationship from the simulation results
+pause(1)
 rmdir('tmpfolder','s')            % remove the tmpfolder
 
 %% Tutorial E - simulation protocol: several voltage clamp steps (I-V relationship)
@@ -243,8 +244,9 @@ mkdir('tmpfolder')                % t2n_currSteps saves the result of the simula
                                   % which can then be used by various plotting functions
                                   % hence we here specify a temporary folder. this of course
                                   % can also be a permanent folder in your simulations
-t2n_VoltSteps(neuron,tree,amp,duration,holding_voltage,'tmpfolder/'); % run the current step simulations and save the results in tmpfolder
+t2n_voltSteps(neuron,tree,amp,duration,holding_voltage,'tmpfolder/'); % run the current step simulations and save the results in tmpfolder
 t2n_IVplot('tmpfolder/',neuron,ostruct); % plot an f-i-relationship from the simulation results
+pause(1)
 rmdir('tmpfolder','s')            % remove the tmpfolder
 %
 % As you can see, the I-V curve is linear at these hyperpolarized steps, 
@@ -296,6 +298,7 @@ mkdir('tmpfolder')                % t2n_currSteps saves the result of the simula
 t2n_bAP(neuron,tree,cstep,'tmpfolder/',0)  % do the simulation
 
 t2n_plotbAP('tmpfolder/',neuron);
+pause(1)
 rmdir('tmpfolder','s')            % remove the tmpfolder
 %% Tutorial G - Do a parameter scan or how to modify mechanism parameters
 % Now we want to analyze the impact of a parameter on spiking, e.g. for optimizing 
@@ -497,18 +500,20 @@ out = t2n(nneuron,trees,'-w-q');                                    % execute t2
 
 % plot the result (Vmem at soma and synapse and synaptic current)
 fig = figure;
-subplot(4,1,1)
+subplot(4,1,2)
 hold all
 plot(out.t{1},out.record{1}.cell.v{1})       % plot time vs voltage at soma
 plot(out.t{1},out.record{1}.cell.v{synIDsExc})  % plot time vs voltage at dendrite end
-legend('Soma (Target Inh Synapse)','Exc. Synapse','Location','northoutside')
+legend('Loc soma','Loc exc. synapse','Location','northoutside')
 ylabel('Membrane potential [mV]')
-subplot(4,1,2)
+subplot(4,1,3)
 plot(out.t{1},out.record{1}.Exp2Syn.i{synIDsExc})  % plot time vs synaptic current
 ylabel('Exc. syn. current [nA]')
-subplot(4,1,3)
+subplot(4,1,4)
 plot(out.t{1},out.record{1}.Exp2Syn.i{synIDsInh})  % plot time vs synaptic current
 ylabel('Inh. syn. current [nA]')
-subplot(4,1,4)
+subplot(4,1,1)
 t2n_plotRaster(spikeMat,tvec)
+title('Spikes NetStim (Poisson distr.)')
 fig.Position(4) = fig.Position(4) * 2;
+linkaxes(get(fig,'Children'),'x')

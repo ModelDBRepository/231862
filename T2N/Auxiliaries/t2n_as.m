@@ -18,10 +18,10 @@ function neuron = t2n_as(x,neuron)
 %
 % *****************************************************************************************************
 % * This function is part of the T2N software package.                                                *
-% * Copyright 2016, 2017 Marcel Beining <marcel.beining@gmail.com>                                    *
+% * Copyright 2016-2019 Marcel Beining <marcel.beining@gmail.com>                                    *
 % *****************************************************************************************************
 
-fields = {'tree','mech','pp','con','record','play','APCount','params'};
+fields = {'tree','mech','pp','con','record','play','APCount','params','tvecs','custom'};
 if nargin < 1 || isempty(x)
     x = 1;
 end
